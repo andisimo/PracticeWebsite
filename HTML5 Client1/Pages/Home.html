@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="demoModule">
+<head>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Libre+Baskerville" />
+    <link rel="stylesheet" type="text/css" href="../Styles/Styles.css" />
+    <title>Home</title>
+</head>
+<body>
+
+    Welcome home!
+
+    <a href="#/simple">Simple</a>
+    <a href="#/complicated">Complicated</a>
+
+    <div data-ng-view=""></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script>
+        var demoModule = angular.module('demoModule', []);
+
+        function simpleController($scope)
+        {
+            $scope.customers = [{ name: 'John Smith', city: 'Portland' }, { name: 'Jakie Smurf', city: 'Smurfville' }, { name: 'Papa Smurf', city: 'Smurfville' }]
+        }
+
+        function complicatedController($scope)
+        {
+            $scope.customers = [{ name: 'John Joebob', city: 'Seattle' }, { name: 'Mavis Barntold', city: 'Mulliganville' }, { name: 'Martin Bjorgmasherbrum', city: 'Brownsville' }]
+        }
+
+        var controllers = {};
+        controllers.simpleController = simpleController;
+        controllers.complicatedController = complicatedController;
+        demoModule.controller(controllers);
+
+        demoModule.config(function ($routeProvider)
+        {
+            $routeProvider
+                .when('/',
+                {
+                })
+                .when('/simple',
+                {
+                    controller: 'simpleController',
+                    templateUrl: 'view1.html'
+                })
+                .when('/complicated',
+                {
+                    controller: 'complicatedController',
+                    templateUrl: 'view2.html'
+                })
+                .otherwise({ redirectTo: '/' });
+        });
+
+    </script>
+
+</body>
+</html>

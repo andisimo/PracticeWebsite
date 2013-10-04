@@ -1,0 +1,11 @@
+﻿body {
+
+    font-family: 'Libre Baskerville';
+    background-color: #359DE7;
+}
+
+a {
+    font-size: 18px;
+    opacity: 0.5;
+    color: white; 
+}
