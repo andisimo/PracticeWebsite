@@ -42,12 +42,12 @@
     <Folder Include="Content\" />
     <Folder Include="Images\" />
     <Folder Include="Properties\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Home.html" />
     <Content Include="Pages\view1.html" />
     <Content Include="Pages\view2.html" />
-    <Content Include="Scripts\anglular.min.js" />
     <Content Include="Styles\Styles.css" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
