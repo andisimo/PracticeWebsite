@@ -8,6 +8,8 @@
     Name:
     <br />
     <input type="text" data-ng-model="name"/>
+    
+</div>
 
     <ul>
         <li data-ng-repeat="cust in customers | filter:name | orderBy:city" /li> {{cust.name}}, {{cust.city}}

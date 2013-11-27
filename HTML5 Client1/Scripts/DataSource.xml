@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<Sample>
+  <xs:schema id="Sample" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Sample" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Spots">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AddressLine" type="xs:string" minOccurs="0" />
+                <xs:element name="Locality" type="xs:string" minOccurs="0" />
+                <xs:element name="AdminDistrict" type="xs:string" minOccurs="0" />
+                <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
+                <xs:element name="CountryRegion" type="xs:string" minOccurs="0" />
+                <xs:element name="Phone" type="xs:string" minOccurs="0" />
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="EntityID" type="xs:string" />
+                <xs:element name="Longitude" type="xs:double" minOccurs="0" />
+                <xs:element name="Latitude" type="xs:double" minOccurs="0" />
+                <xs:element name="StudentOrSpouse" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Spots" />
+        <xs:field xpath="EntityID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Spots>
+    <EntityID>1000</EntityID>
+    <AddressLine>1069 Sage Drive</AddressLine>
+    <Locality>Pleasant Grove</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode>84062</PostalCode>
+    <Phone></Phone>
+    <Name>Andy Schultz</Name>
+    <StudentOrSpouse>Student</StudentOrSpouse>
+  </Spots>
+  <Spots>
+    <EntityID>1001</EntityID>
+    <AddressLine>695 Dalton Drive</AddressLine>
+    <Locality>Pleasant Grove</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode>84062</PostalCode>
+    <Phone></Phone>
+    <Name>D C</Name>
+    <StudentOrSpouse>Student</StudentOrSpouse>
+  </Spots>
+  <Spots>
+    <EntityID>1002</EntityID>
+    <AddressLine>782 North 800 East</AddressLine>
+    <Locality>Provo</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode></PostalCode>
+    <Phone></Phone>
+    <Name>Andy Pastlife</Name>
+    <StudentOrSpouse>Student</StudentOrSpouse>
+  </Spots>
+  <Spots>
+    <EntityID>1003</EntityID>
+    <AddressLine>760 North 800 East</AddressLine>
+    <Locality>Provo</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode></PostalCode>
+    <Phone></Phone>
+    <Name>Camille Pastlife</Name>
+    <StudentOrSpouse>Student</StudentOrSpouse>
+  </Spots>
+  <Spots>
+    <EntityID>1004</EntityID>
+    <AddressLine>900 North 900 East</AddressLine>
+    <Locality>Provo</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode></PostalCode>
+    <Phone></Phone>
+    <Name>ChattamTown</Name>
+    <StudentOrSpouse>Spouse</StudentOrSpouse>
+  </Spots>
+  <Spots>
+    <EntityID>1005</EntityID>
+    <AddressLine>1000 North 900 East</AddressLine>
+    <Locality>Provo</Locality>
+    <AdminDistrict>UT</AdminDistrict>
+    <PostalCode></PostalCode>
+    <Phone></Phone>
+    <Name>Nantuckett</Name>
+    <StudentOrSpouse>Student</StudentOrSpouse>
+  </Spots>
+</Sample>

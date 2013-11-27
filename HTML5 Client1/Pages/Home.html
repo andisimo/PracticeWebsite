@@ -8,30 +8,93 @@
 <body>
 
     Welcome home!
-
+    Hey can you see
+    <br />
+   
+    <br />
     <a href="#/simple">Simple</a>
     <a href="#/complicated">Complicated</a>
 
+
     <div data-ng-view=""></div>
+
+<!--    This does not work. Once you start using the view, the controller is defined in the view.
+    Since there is no controller in scope here in Home.html anymore, the "addCustomer()" invocation
+    below doesn't actually connect to that method, which is in SimpleController. If I try to put the
+    text boxes and button in a div that has a controller in scope, like below, it doesn't work anyway.
+    The controller is being referenced from 2 different places, that might be the problem. Also, if I 
+    successfully add the guy in the home page, when I go to the Complicated View, the controller is
+    refreshed and he would be gone anyway. 
+    <div data-ng-controller="complicatedController">
+        <input type="text" data-ng-model="customers.NewName" />
+        <input type="text" data-ng-model="customers.NewCity" />
+
+        <button data-ng-click="addCustomer()">Add Guy</button>
+    </div>-->
+        
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script>
+
+        
         var demoModule = angular.module('demoModule', []);
 
-        function simpleController($scope)
+        function simpleController($scope, simpleService)
         {
-            $scope.customers = [{ name: 'John Smith', city: 'Portland' }, { name: 'Jakie Smurf', city: 'Smurfville' }, { name: 'Papa Smurf', city: 'Smurfville' }]
+            $scope.customers = simpleService.getSimpleCustomers();
+
+            $scope.addCustomer = function ()
+            {
+                $scope.customers.push
+                    ({
+                        name: $scope.customers.NewName,
+                        city: $scope.customers.NewCity
+                    });
+            }
         }
 
-        function complicatedController($scope)
+        function complicatedController($scope, simpleService)
         {
-            $scope.customers = [{ name: 'John Joebob', city: 'Seattle' }, { name: 'Mavis Barntold', city: 'Mulliganville' }, { name: 'Martin Bjorgmasherbrum', city: 'Brownsville' }]
+            $scope.customers = simpleService.getComplicatedCustomers();
+
+            $scope.addCustomer = function ()
+            {
+                $scope.customers.push
+                    ({
+                        name: $scope.customers.NewName,
+                        city: $scope.customers.NewCity
+                    });
+            }
         }
 
         var controllers = {};
         controllers.simpleController = simpleController;
         controllers.complicatedController = complicatedController;
         demoModule.controller(controllers);
+
+        demoModule.service('simpleService', function ()
+        {
+            var customers1 =
+            [
+                { name: 'Andy Schultz', city: 'Pleasant Grove', state: 'UT', lat: '40.374964', long: '-111.719788' },
+                { name: 'Derek Cahoon', city: 'Pleasant Grove', state: 'UT', lat: '40.370717', long: '-111.713207' },
+                { name: 'Andy Pastlife', city: 'Provo', state: 'UT', lat: '40.244416', long: '-111.644255' },
+                { name: 'Camille Pastlife', city: 'Provo', state: 'UT', lat: '40.243897', long: '-111.644336' }
+            ];
+
+            var customers2 = [{ name: 'John Joebob', city: 'Provo, UT' },
+                { name: 'Mavis Barntold', city: 'Pleasant Grove, UT' },
+                { name: 'Martin Bjorgmasherbrum', city: 'Orem, UT' }];
+
+            this.getComplicatedCustomers = function () {
+                return customers2;
+            }
+
+            this.getSimpleCustomers = function ()
+            {
+                return customers1;
+            }
+        });
 
         demoModule.config(function ($routeProvider)
         {
@@ -53,6 +116,10 @@
         });
 
     </script>
+
+
+
+
 
 </body>
 </html>

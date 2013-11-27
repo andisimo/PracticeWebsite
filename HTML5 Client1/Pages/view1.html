@@ -13,5 +13,11 @@
         <li data-ng-repeat="cust in customers | filter:name | orderBy:city" /li> {{cust.name}}, {{cust.city}}
     </ul>
 
+    <br /><br />
+    <input type="text" data-ng-model="customers.NewName" />
+    <input type="text" data-ng-model="customers.NewCity" />
+
+    <button data-ng-click="addCustomer()">Add Guy</button>
+
 </body>
 </html>
